@@ -1,3 +1,4 @@
+package com.asif.lucene;
 
 import java.io.File;
 import java.io.FileReader;
@@ -33,7 +34,7 @@ public class Indexer {
         CONTENT_FIELD_TYPE.setTokenized(true);
         CONTENT_FIELD_TYPE.freeze();
 
-        ID_FIELD_TYPE.setIndexOptions(IndexOptions.DOCS);
+        ID_FIELD_TYPE.setIndexOptions(IndexOptions.DOCS_AND_FREQS_AND_POSITIONS);
         ID_FIELD_TYPE.setTokenized(false);
         ID_FIELD_TYPE.setStored(true);
         ID_FIELD_TYPE.freeze();
@@ -65,7 +66,7 @@ public class Indexer {
        //index file contents
        Field contentField = new Field(Constants.CONTENT, new FileReader(file), CONTENT_FIELD_TYPE);
        //index file name
-       Field fileNameField = new Field(Constants.NAME, file.getName(), ID_FIELD_TYPE);
+       Field fileNameField = new Field(Constants.NAME, "asif iqbal three miu gheu", ID_FIELD_TYPE);
        //index file path
        Field filePathField = new Field(Constants.PATH, file.getCanonicalPath(), ID_FIELD_TYPE);
 

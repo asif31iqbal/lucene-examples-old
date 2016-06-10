@@ -1,3 +1,4 @@
+package com.asif.lucene;
 
 public class Constants {
     public static final String CONTENT = "content";
